@@ -8,7 +8,7 @@ func main() {
 
 	var accountBalance = 1000.0
 
-	for i := 0; i < 50; i++ {
+	for {
 		fmt.Printf("\n%v\nWelcome to Go banking app\n%v\n", divider, divider)
 
 		fmt.Println("1. Check balance")
