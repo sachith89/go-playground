@@ -8,11 +8,11 @@ import (
 func main() {
 	fmt.Println("Hello, World!")
 
-	var investmentAmount float64 = 1000
-	var expectedRateOfReturn = 5.5
-	var years float64 = 10
+	investmentAmount := 1000.0
+	expectedRateOfReturn := 5.5
+	years := 10.0
 
-	var futureValue = investmentAmount * math.Pow(1+expectedRateOfReturn/100, years)
+	futureValue := investmentAmount * math.Pow(1+expectedRateOfReturn/100, years)
 
 	fmt.Println(futureValue)
 }
