@@ -8,7 +8,7 @@ import (
 func main() {
 	fmt.Println("Hello, World!")
 
-	investmentAmount, expectedRateOfReturn, years := 1000.0, 5.5, 10.0
+	var investmentAmount, expectedRateOfReturn, years float64 = 1000, 5.5, 10
 
 	futureValue := investmentAmount * math.Pow(1+expectedRateOfReturn/100, years)
 
