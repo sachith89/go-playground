@@ -15,6 +15,14 @@ func main() {
 	var expectedRateOfReturn float64 = 5.5
 	var years float64 = 10
 
+	fmt.Println("Please enter the investment amount:")
+	_, err := fmt.Scan(&investmentAmount)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	futureValue := investmentAmount * math.Pow(1+expectedRateOfReturn/100, years)
 	futureRealValue := futureValue * math.Pow(1+inflationRate/100, years)
 
