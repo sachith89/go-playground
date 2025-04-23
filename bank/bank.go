@@ -21,45 +21,55 @@ func main() {
 		fmt.Print("\nEnter your choice: ")
 		_, _ = fmt.Scan(&choice)
 
-		if choice == 1 {
-			fmt.Println("Your balance is: ", accountBalance)
-		} else if choice == 2 {
-			fmt.Print("Enter the amount to deposit: ")
-
-			var depositAmount float64
-			_, _ = fmt.Scan(&depositAmount)
-
-			if depositAmount <= 0 {
-				fmt.Println("Invalid amount. Should be greater than 0")
-				return
+		switch choice {
+		case 1:
+			{
+				fmt.Println("Your balance is: ", accountBalance)
 			}
 
-			accountBalance += depositAmount
+		case 2:
+			{
+				fmt.Print("Enter the amount to deposit: ")
 
-			fmt.Println("Your balance is:", accountBalance)
+				var depositAmount float64
+				_, _ = fmt.Scan(&depositAmount)
 
-		} else if choice == 3 {
+				if depositAmount <= 0 {
+					fmt.Println("Invalid amount. Should be greater than 0")
+					continue
+				}
 
-			fmt.Print("Enter the amount to withdraw: ")
+				accountBalance += depositAmount
 
-			var withdrawAmount float64
-			_, _ = fmt.Scan(&withdrawAmount)
-
-			if withdrawAmount <= 0 {
-				fmt.Println("Invalid amount. Should be greater than 0")
-				return
+				fmt.Println("Your balance is:", accountBalance)
 			}
 
-			if withdrawAmount > accountBalance {
-				fmt.Println("Insufficient funds")
+		case 3:
+			{
+				fmt.Print("Enter the amount to withdraw: ")
+
+				var withdrawAmount float64
+				_, _ = fmt.Scan(&withdrawAmount)
+
+				if withdrawAmount <= 0 {
+					fmt.Println("Invalid amount. Should be greater than 0")
+					continue
+				}
+
+				if withdrawAmount > accountBalance {
+					fmt.Println("Insufficient funds")
+					continue
+				}
+
+				accountBalance -= withdrawAmount
+				fmt.Println("Your balance is:", accountBalance)
+			}
+		default:
+			{
+				fmt.Println("Goodbye")
+				fmt.Println("Thank you for using Go banking app")
 				return
 			}
-
-			accountBalance -= withdrawAmount
-			fmt.Println("Your balance is:", accountBalance)
-
-		} else {
-			fmt.Println("Goodbye")
 		}
 	}
 
