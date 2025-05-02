@@ -1,8 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 const divider = "-----------------------------------"
+
+func writeBalanceToFile(balance float64) {
+	// Write the balance to the file
+	balanceText := fmt.Sprintf("Balance: %.2f\n", balance)
+
+	if err := os.WriteFile("balance.txt", []byte(balanceText), 0644); err != nil {
+		fmt.Println("Error writing to file")
+	}
+
+}
 
 func main() {
 
